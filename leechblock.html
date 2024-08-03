@@ -8,17 +8,20 @@
 </head>
 <body>
   <div class="content">
-    <p>Don't you want to <a href="https://devdocs.io">consult DevDocs</a> instead?</p>
+    <div class="row">Don't you want to <a class="button" href="https://devdocs.io">consult DevDocs</a> instead?</div>
+    <div class="row">If not, the origin URL was <a id="url">not set</a>.</div>
   </div>
 </body>
 <script>
-function getVars() {
-  var query = window.location.search.substring(1);
-  var vars = query.split("&");
-  for (var i=0;i<vars.length;i++) {
-    console.log(vars[i]);
+  function getUrl() {
+    let params = new URLSearchParams(document.location.search);
+    return params.get("url");
   }
-}
-getVars();
+  function insertUrlIntoHtml(){
+    let a = document.getElementById("url").innerHTML;
+    a.innerHTML = getUrl();
+    a.href = getUrl();
+  }
+  insertUrlIntoHtml();
 </script>
 </html>
