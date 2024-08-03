@@ -11,4 +11,14 @@
     <p>Don't you want to <a href="https://devdocs.io">consult DevDocs</a> instead?</p>
   </div>
 </body>
+<script>
+function getVars() {
+  var query = window.location.search.substring(1);
+  var vars = query.split("&");
+  for (var i=0;i<vars.length;i++) {
+    console.log(vars[i]);
+  }
+}
+getVars();
+</script>
 </html>
