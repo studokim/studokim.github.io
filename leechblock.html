@@ -5,6 +5,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="/style.css">
+  <script>
+    function getUrl() {
+      let params = new URLSearchParams(document.location.search);
+      return params.get("url");
+    }
+    function insertUrlIntoHtml(){
+      let a = document.getElementById("url").innerHTML;
+      a.innerHTML = getUrl();
+      a.href = getUrl();
+    }
+    insertUrlIntoHtml();
+  </script>
 </head>
 <body>
   <div class="content">
@@ -12,16 +24,4 @@
     <div class="row">If not, the origin URL was <a id="url">not set</a>.</div>
   </div>
 </body>
-<script>
-  function getUrl() {
-    let params = new URLSearchParams(document.location.search);
-    return params.get("url");
-  }
-  function insertUrlIntoHtml(){
-    let a = document.getElementById("url").innerHTML;
-    a.innerHTML = getUrl();
-    a.href = getUrl();
-  }
-  insertUrlIntoHtml();
-</script>
 </html>
