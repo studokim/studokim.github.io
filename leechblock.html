@@ -4,19 +4,7 @@
   <title>Blocked</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="/style.css">
-  <script>
-    function getUrl() {
-      let params = new URLSearchParams(document.location.search);
-      return params.get("url");
-    }
-    function insertUrlIntoHtml(){
-      let a = document.getElementById("url").innerHTML;
-      a.innerHTML = getUrl();
-      a.href = getUrl();
-    }
-    insertUrlIntoHtml();
-  </script>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
   <div class="content">
@@ -25,9 +13,21 @@
         <p>Don't you want to <a class="button" href="https://devdocs.io">consult DevDocs</a> instead?</p>
       </div>
       <div class="row">
-        <p>If not, the origin URL was <a id="url">not set</a>.</p>
+        <p>If not, the origin URL was <a id="aurl"><i>null</i></a>.</p>
       </div>
     </div>
   </div>
+  <script>
+    function getUrl() {
+      let params = new URLSearchParams(document.location.search);
+      return params.get("url");
+    }
+    function insertUrlIntoHtml(){
+      let a = document.getElementById("aurl");
+      a.innerHTML = getUrl();
+      a.href = getUrl();
+    }
+    insertUrlIntoHtml();
+  </script>
 </body>
 </html>
