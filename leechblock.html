@@ -22,10 +22,14 @@
       let params = new URLSearchParams(document.location.search);
       return params.get("url");
     }
-    function insertUrlIntoHtml(){
+   function insertUrlIntoHtml(){
+      let url = getUrl();
+      if (!url) {
+        return;
+      }
       let a = document.getElementById("aurl");
-      a.innerHTML = getUrl();
-      a.href = getUrl();
+      a.innerHTML = url;
+      a.href = url;
     }
     insertUrlIntoHtml();
   </script>
